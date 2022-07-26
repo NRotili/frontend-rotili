@@ -1,0 +1,36 @@
+h1{
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div{
+    text-align: justify;
+}
+
+strong{
+    font-weight: bold;
+    color: #c77634;
+}
+
+
+@media (max-width: 576px) {
+    div{
+        text-align: center;
+        margin-top: 20px;
+    }
+    #perfilFoto{
+        position: absolute;
+        border-radius: 100%;
+        width: 35%;
+        height: auto;
+        box-shadow: 3px 3px 3px #888888;
+        left: 33%;
+        top: 210px;
+    }
+
+}

@@ -1,0 +1,20 @@
+#logo-ap{
+    width: 150px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+    #logo-ap{
+        width: 100px;
+    }
+
+    .redes{
+        display: none;
+    }
+}
+
