@@ -22,7 +22,8 @@
           <i class="fab fa-linkedin fa-2x"></i>
         </a>
 
-        <button class="btn btn-outline-light me-2 m-1" (click)="login()">Login</button>
+        <button class="btn btn-outline-light me-2 m-1" (click)="login()" *ngIf="!isLogged">Login</button>
+        <button class="btn btn-outline-light me-2 m-1" (click)="onLogOut()" *ngIf="isLogged">Cerrar sesión</button>
 
       </div>
     </div>

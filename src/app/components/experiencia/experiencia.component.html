@@ -1,30 +1,18 @@
 <div>
-    <div class="row">
-        <h2>Experiencia</h2>
-        <div class="col col-12 col-md-4">
-        <ul>
-            <li>
-                Trabajo 1 - 2021/2022
-            </li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, corrupti quam? Architecto ipsum enim qui, dignissimos reiciendis ea repudiandae recusandae hic fugiat magnam voluptas consequuntur ab tempore modi unde deleniti?</p>
-        </ul>
-        </div>
-        <div class="col col-12 col-md-4">
-        <ul>
-            <li>
-                Trabajo 2 - 2021/2022
-            </li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, corrupti quam? Architecto ipsum enim qui, dignissimos reiciendis ea repudiandae recusandae hic fugiat magnam voluptas consequuntur ab tempore modi unde deleniti?</p>
-        </ul>
-        </div>
-        <div class="col col-12 col-md-4">
-            
-        <ul>
-            <li>
-                Trabajo 3 - 2021/2022
-            </li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, corrupti quam? Architecto ipsum enim qui, dignissimos reiciendis ea repudiandae recusandae hic fugiat magnam voluptas consequuntur ab tempore modi unde deleniti?</p>
-        </ul>
+    <h2>Experiencia laboral</h2>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-outline-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+            Nueva experiencia
+        </button>
     </div>
-    </div>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let Experiencia of expe">
+                <td>{{Experiencia.nombreE}}</td>
+                <td>{{Experiencia.descripcionE}}</td>
+                <td *ngIf="isLogged"><button class="btn btn-warning btn-sm" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-pen"></i></button></td>
+                <td *ngIf="isLogged"><button class="btn btn-danger btn-sm" (click)="delete(Experiencia.id)"><i class="bi bi-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
