@@ -1,30 +1,21 @@
-<div>
-    <div class="row">
-        <h2>Educación</h2>
-        <div class="col col-12 col-md-4">
-        <ul>
-            <li>
-                Trabajo 1 - 2021/2022
-            </li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, corrupti quam? Architecto ipsum enim qui, dignissimos reiciendis ea repudiandae recusandae hic fugiat magnam voluptas consequuntur ab tempore modi unde deleniti?</p>
-        </ul>
-        </div>
-        <div class="col col-12 col-md-4">
-        <ul>
-            <li>
-                Trabajo 2 - 2021/2022
-            </li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, corrupti quam? Architecto ipsum enim qui, dignissimos reiciendis ea repudiandae recusandae hic fugiat magnam voluptas consequuntur ab tempore modi unde deleniti?</p>
-        </ul>
-        </div>
-        <div class="col col-12 col-md-4">
-            
-        <ul>
-            <li>
-                Trabajo 3 - 2021/2022
-            </li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, corrupti quam? Architecto ipsum enim qui, dignissimos reiciendis ea repudiandae recusandae hic fugiat magnam voluptas consequuntur ab tempore modi unde deleniti?</p>
-        </ul>
+<div class="row">
+    <div class="col col-md-10">
+        <h2>Educación académica</h2>
     </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-outline-dark" routerLink="/nuevaedu" *ngIf="isLogged">
+            Nueva educación
+        </button>
     </div>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let Educacion of educacion">
+                <td>{{Educacion.nombreE}}</td>
+                <td>{{Educacion.descripcionE}}</td>
+                <td>{{Educacion.periodoE}}</td>
+                <td *ngIf="isLogged"><button class="btn btn-warning btn-sm" routerLink="/editedu/{{Educacion.id}}"><i class="bi bi-pen"></i></button></td>
+                <td *ngIf="isLogged"><button class="btn btn-danger btn-sm" (click)="delete(Educacion.id)"><i class="bi bi-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

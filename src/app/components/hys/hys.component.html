@@ -1,17 +1,24 @@
 <div>
-
     <div class="row">
+        <div class="col col-md-10">
         <h1>Hard & Soft Skills</h1>
-        <div class="text-center col col-12 col-md-4">
+
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-dark" routerLink="/nuevaskill" *ngIf="isLogged">
+                Nueva habilidad
+            </button>
+        </div>
+
+        <div *ngFor="let Skill of skill" class="text-center col col-12 col-md-4">
             <circle-progress 
-                [percent]="85" 
+                [percent]="Skill.porcentajeS" 
                 [radius]="85" 
-                [title]="'HTML'"
+                [title]="Skill.tituloS"
                 [titleFontSize]="'2rem'"
-                [imageSrc]="'assets/img/html.png'"
                 [imageHeight]="85"
                 [imageWidth]="85"
-                [showImage]="true"
+                [showImage]="false"
                 [showUnits]="false"
                 [showSubtitle]="false"
                 [outerStrokeWidth]="16" 
@@ -21,46 +28,14 @@
                 [animation]="true" 
                 [animationDuration]="300">
             </circle-progress>
+            
+                <button *ngIf="isLogged" class="btn btn-warning btn-sm mx-2" routerLink="/editski/{{Skill.id}}"><i class="bi bi-pen"></i></button>
+                <button *ngIf="isLogged" class="btn btn-danger btn-sm mx-s" (click)="delete(Skill.id)"><i class="bi bi-trash"></i></button>
+
+ 
         </div>
-        <div class="text-center col col-12 col-md-4">
-            <circle-progress 
-                [percent]="65" 
-                [radius]="85" 
-                [title]="'HTML'"
-                [titleFontSize]="'2rem'"
-                [imageSrc]="'assets/img/CSS.png'"
-                [imageHeight]="85"
-                [imageWidth]="85"
-                [showImage]="true"
-                [showUnits]="false"
-                [showSubtitle]="false"
-                [outerStrokeWidth]="16" 
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'" 
-                [innerStrokeColor]="'#C7E596'" 
-                [animation]="true" 
-                [animationDuration]="300">
-            </circle-progress>
-        </div>
-        <div class="text-center col col-12 col-md-4">
-            <circle-progress 
-                [percent]="50" 
-                [radius]="85" 
-                [title]="'HTML'"
-                [titleFontSize]="'2rem'"
-                [imageSrc]="'assets/img/js.png'"
-                [imageHeight]="85"
-                [imageWidth]="85"
-                [showImage]="true"
-                [showUnits]="false"
-                [showSubtitle]="false"
-                [outerStrokeWidth]="16" 
-                [innerStrokeWidth]="8"
-                [outerStrokeColor]="'#78C000'" 
-                [innerStrokeColor]="'#C7E596'" 
-                [animation]="true" 
-                [animationDuration]="300">
-            </circle-progress>
-        </div>
+
+
+        
     </div>
 </div>
