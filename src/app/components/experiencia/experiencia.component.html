@@ -1,18 +1,50 @@
 <div>
-    <h2>Experiencia laboral</h2>
-    <div class="col-md-2">
-        <button type="button" class="btn btn-outline-dark" routerLink="/nuevaexp" *ngIf="isLogged">
-            Nueva experiencia
-        </button>
+  <div class="row">
+    <div class="col col-8 col-md-10">
+
+      <h2>Experiencia laboral</h2>
     </div>
-    <table class="table">
-        <tbody>
-            <tr *ngFor="let Experiencia of expe">
-                <td>{{Experiencia.nombreE}}</td>
-                <td>{{Experiencia.descripcionE}}</td>
-                <td *ngIf="isLogged"><button class="btn btn-warning btn-sm" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-pen"></i></button></td>
-                <td *ngIf="isLogged"><button class="btn btn-danger btn-sm" (click)="delete(Experiencia.id)"><i class="bi bi-trash"></i></button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col col-4 col-md-2">
+      <button type="button" class="btn btn-outline-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+        Nueva experiencia
+      </button>
+    </div>
+  </div>
+
+
+  <div  class="row">
+    <div  *ngFor="let Experiencia of expe" class="col col-md-4 col-12">
+      <div class="card mt-2">
+        <div class="card-body d-flex flex-row">
+          <div>
+            <h5 class="card-title font-weight-bold mb-2">{{Experiencia.nombreE}}</h5>
+            <strong class="card-text"><i class="fas fa-map-marker pe-2"></i>{{Experiencia.lugarE}}</strong><br>
+            <strong class="card-text"><i class="far fa-clock pe-2"></i>{{Experiencia.inicioE | date:'MM/yyyy'}} - {{Experiencia.finE | date:'MM/yyyy'}}</strong>
+          </div>
+        </div>
+        
+        <div class="card-body">
+          <p class="card-text collapse" id="collapseContent-exp-{{Experiencia.id}}">
+            {{Experiencia.descripcionE}}
+          </p>
+          <div class="d-flex justify-content-between">
+            <a class="btn btn-link link-danger p-md-1 my-1" data-mdb-toggle="collapse" href="#collapseContent-exp-{{Experiencia.id}}"
+              role="button" aria-expanded="false" aria-controls="collapseContent">+ INFO</a>
+            <div>
+
+              <td *ngIf="isLogged"><button class="btn btn-warning btn-sm mx-2" routerLink="/editexp/{{Experiencia.id}}"><i
+                    class="bi bi-pen"></i></button></td>
+              <td *ngIf="isLogged"><button class="btn btn-danger btn-sm mx-2" (click)="delete(Experiencia.id)"><i
+                    class="bi bi-trash"></i></button></td>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 </div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+        <h3>Insertar nuevo proyecto</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <div class="row">
+          <div class="col col-12 col-md-4">
+            <div class="form-group">
+                <label for="nombreP">Nombre Proyecto</label>
+                <input type="text" class="form-control" id="nombreP" name="nombreP" [(ngModel)]="nombreP" required>
+              </div>
+          </div>
+          <div class="col col-12 col-md-4"><div class="form-group">
+            <label for="descripcionP">Descripción</label>
+            <input type="text" class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="descripcionP"
+              required>
+          </div></div>
+          <div class="col col-12 col-md-4">
+            <div class="form-group">
+                <label for="fechaP">Fecha de Proyecto</label>
+                <input type="text" class="form-control" id="fechaP" name="fechaP" [(ngModel)]="fechaP" required>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 col-md-6">
+                <div class="form-group">
+                    <label for="urlP">URL</label>
+                    <input type="text" class="form-control" id="urlP" name="urlP" [(ngModel)]="urlP" required>
+                  </div>
+            </div>
+            <div class="col col-12 col-md-6">
+                <div class="form-group">
+                    <label for="empresaP">Empresa</label>
+                    <input type="text" class="form-control" id="empresaP" name="empresaP" [(ngModel)]="empresaP" required>
+                  </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary btn-block mt-4">
+            Agregar proyecto
+        </button>
+        
+      </form>
+    </div>
+  </div>
+ 
+</div>

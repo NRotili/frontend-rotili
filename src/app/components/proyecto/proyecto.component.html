@@ -1,14 +1,44 @@
 <div>
-  <h1 class="pt-5">Proyectos realizados</h1>
   <div class="row">
-    <div class="col col-12 col-md-4">
-      <h3>Smart VC</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex commodi voluptas corporis ad adipisci, et quibusdam
-        cum nobis asperiores magnam totam provident eum eligendi eveniet veniam, libero beatae voluptates consectetur?
-      </p>
+    <div class="col col-md-10">
+      <h2 >Proyectos realizados</h2>
     </div>
-    <div class="col col-12 col-md-7 offset-md-1">
-      <img class="img-fluid shadow-lg rounded" src="assets/img/printSmartVc.png" alt="">
+    <div class="col-md-2">
+      <button type="button" class="btn btn-outline-dark" routerLink="/nuevoproyecto" *ngIf="isLogged">
+        Nuevo proyecto
+      </button>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div *ngFor="let Proyecto of proyecto" class="col col-12 col-md-4">
+      <div class="card shadow-lg rounded">
+        <div class="card-header">
+            <h4>
+              {{Proyecto.nombreP}} -  <a href="{{Proyecto.urlP}}" class="mx-2 btn btn-sm btn-icon btn-secondary">
+                <i class="fab fa-chrome"></i> 
+              </a>
+
+                <button *ngIf="isLogged" class="btn btn-warning btn-sm mx-2" routerLink="/editpro/{{Proyecto.id}}"><i class="bi bi-pen"></i></button>
+                <button *ngIf="isLogged" class="btn btn-danger btn-sm mx-2" (click)="delete(Proyecto.id)"><i class="bi bi-trash"></i></button>
+
+ 
+            </h4>
+
+        </div>
+        <div class="card-body">
+          <p>
+            {{Proyecto.descripcionP}}
+          </p>
+        </div>
+        <div class="card-footer">
+          <div class="text-center">
+            {{Proyecto.fechaP}} - Desarrollado para {{Proyecto.empresaP}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
